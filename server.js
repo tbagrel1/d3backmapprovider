@@ -165,7 +165,9 @@ async function createSVGMap (
     .text(style)
   const projection = d3[projectionMethod]()
     .rotate([-centerLongitude, -centerLatitude])
-    .fitSize([width, height], mapJsonData)
+    .fitSize([width, height], {
+      type: "Sphere"
+    })
   const path = d3
     .geoPath()
     .projection(projection)
